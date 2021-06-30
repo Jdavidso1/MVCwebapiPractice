@@ -48,5 +48,31 @@ namespace MVCtutorial.Controllers
             string fileName = "~/PaySlip" + EmpId + ".pdf";
             return File(fileName, "appclication/pdf");
         }
+
+        public ActionResult EmpFacebookPage(int EmpId)
+        {
+            var employees = new[] {
+            new { EmpId = 1, EmpName = "Scott", Salary = 8000 },
+            new { EmpId = 2, EmpName = "Paul", Salary = 6500 },
+            new { EmpId = 3, EmpName = "Eric", Salary = 9500 }
+            };
+
+            string fbUrl = null;
+            foreach (var item in employees)
+            {
+                if (item.EmpId == EmpId)
+                {
+                    fbUrl = "http://www.facebook.com/emp" + EmpId;
+                }
+            }
+            if (fbUrl == null)
+            {
+                return Content("Invalid emp id");
+            }
+            else
+            {
+                return Redirect(fbUrl);
+            }
+        }
     }
 }
