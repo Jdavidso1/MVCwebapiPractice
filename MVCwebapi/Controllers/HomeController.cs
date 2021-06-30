@@ -42,5 +42,11 @@ namespace MVCtutorial.Controllers
             //return new ContentResult() { Content = matchEmpName, ContentType = "text/plain" };
             return Content(matchEmpName, "text/plain");
         }
+
+        public ActionResult GetPaySlip(int EmpId)
+        {
+            string fileName = "~/PaySlip" + EmpId + ".pdf";
+            return File(fileName, "appclication/pdf");
+        }
     }
 }
