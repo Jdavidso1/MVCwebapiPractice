@@ -8,8 +8,18 @@ namespace MVCwebapi.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Products()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
         {
             return View();
         }
